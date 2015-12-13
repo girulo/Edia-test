@@ -3,7 +3,13 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index()
+GET     /                           controllers.AppController.index()
+
+GET     /doc/new                    controllers.AppController.create()
+POST    /doc/new                    controllers.AppController.save()
+
+GET     /doc/:id                    controllers.AppController.edit(id: Long)
+POST    /doc/:id                    controllers.AppController.update(id: Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

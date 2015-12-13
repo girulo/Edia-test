@@ -1,0 +1,61 @@
+@import models.Document
+
+@(documentForm: Form[Document])
+
+@import helper._
+
+
+
+<!DOCTYPE html>
+
+    <html>
+
+        @head()
+        <body>
+
+            <div id="container">
+
+                <h1>Create a new Document</h1>
+
+                <!-- We create the form with play tags -->
+                <div id="documentForm">
+                    <form method="POST" action="@routes.AppController.save()" class="form-horizontal" role="form">
+
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                @inputText(
+                                    documentForm("title"),
+                                    'class -> "form-control",
+                                    '_showConstraints -> false,
+                                    '_placeholder -> "Introduce a Title",
+                                    '_label -> "Title"
+                                )
+                            </div>
+
+
+
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                @textarea(
+                                    documentForm("description"),
+                                    'class -> "form-control",
+                                    '_showConstraints -> false,
+                                    '_placeholder -> "Introduce description",
+                                    '_rows -> 6,
+                                    '_label -> "Description"
+                                )
+                            </div>
+
+                        </div>
+
+                        <div id="createDocumentButton">
+                            <input type="submit" class="btn btn-primary" value="Create Document" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </body>
+    </html>

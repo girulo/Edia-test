@@ -15,6 +15,10 @@ import javax.persistence.Id;
 @Entity
 public class Document extends Model {
 
+
+    //Finder to interect with the database and make sql query's
+    public static Finder<Long, Document> find = new Finder<>(Long.class, Document.class);
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

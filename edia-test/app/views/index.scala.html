@@ -1,7 +1,38 @@
-@(message: String)
+@(documentList: List[Document])
 
-@main("Welcome to Play") {
+@import helper._
 
-    @play20.welcome(message, style = "Java")
 
-}
+
+<!DOCTYPE html>
+
+<html>
+
+    @head()
+    <body>
+
+        <div id="container">
+
+            <h1>Welcome to EDIA test app</h1>
+
+            @if(documentList == null || documentList.size() == 0) {
+                <h2>Sorry, your Document list is empty</h2>
+            }else{
+                <h2>Documents availables</h2>
+            }
+
+
+            <div id="documents">
+                @for(document <- documentList){
+                    <h4><a href="@routes.AppController.edit(document.getId())">@document.getTitle()</a></h4>
+                }
+            </div>
+
+            <div id="createDocument">
+                <a href="@routes.AppController.create()"/>Add
+            </div>
+        </div>
+
+
+    </body>
+
