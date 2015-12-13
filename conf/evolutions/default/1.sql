@@ -8,6 +8,7 @@ create table document (
   title                     varchar(255),
   description               varchar(255),
   created_date              datetime(6),
+  text_score                float,
   constraint pk_document primary key (id))
 ;
 

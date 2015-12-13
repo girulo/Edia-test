@@ -1,12 +1,11 @@
 package controllers;
 
 import models.Document;
-import play.*;
 import play.data.Form;
 import play.data.validation.ValidationError;
-import play.i18n.Messages;
 import play.mvc.*;
 
+import utils.TextScore;
 import views.html.*;
 
 import java.util.ArrayList;
@@ -88,6 +87,8 @@ public class AppController extends Controller {
         //Parsing the form to a Document Object
         Document doc = documentForm.get();
         doc.setCreatedDate(new Date());
+
+        doc.setTextScore(TextScore.calculateScore(doc));
 
         //Store in DDBB
         doc.save();

@@ -24,7 +24,8 @@
 
             <div id="documents">
                 @for(document <- documentList){
-                    <h4><a href="@routes.AppController.edit(document.getId())">@document.getTitle()</a></h4>
+                    <h4><a class="col-md-3" href="@routes.AppController.edit(document.getId())">@document.getTitle()</a></h4>
+                    <h4>score: @document.getTextScore()</h4>
                 }
             </div>
 

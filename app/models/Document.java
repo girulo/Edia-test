@@ -5,6 +5,8 @@ package models;
  */
 
 import com.avaje.ebean.Model;
+import com.representqueens.lingua.en.Fathom;
+import com.representqueens.lingua.en.Readability;
 import play.data.validation.Constraints.Required;
 
 import javax.persistence.Entity;
@@ -30,8 +32,9 @@ public class Document extends Model {
     @Required(message = "ERROR: Please fill the Description.")
     private String description;
 
-
     private Date createdDate;
+
+    private float textScore;
 
     public Long getId() {
         return id;
@@ -64,5 +67,14 @@ public class Document extends Model {
     public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
+
+    public float getTextScore() {
+        return textScore;
+    }
+
+    public void setTextScore(float textScore) {
+        this.textScore = textScore;
+    }
+
 }
 
