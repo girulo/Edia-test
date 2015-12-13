@@ -25,14 +25,42 @@ public class AppController extends Controller {
     }
 
 
-    public Result edit(Long id){
+    public Result edit(Long docId){
 
-        return TODO;
+        Document doc = Document.find.byId(docId);
+
+        Form<Document> documentForm = form(Document.class).fill(doc);
+        return ok(editDocument.render(documentForm));
+
     }
 
-    public Result update(Long id){
+    /*We can implement this method together with save(), so basically they do the same function with the different that
+    one executes save() and the other one update()
+    The condition will be the next after doing the Document doc = documentForm.get();"
+    if (doc.getId() == null) we will do doc.save(), otherwise we will do doc.update().
 
-        return TODO;
+    But i made 2 methods only to show the differencies
+     */
+    public Result update(Long docId){
+
+        //We fill the documentForm (we create it like in the method create) but now we fill it with the form we receive from the view.
+        Form<Document> documentForm = form(Document.class).bindFromRequest();
+
+        //Check that the form doesn't contains errors
+        if(documentForm.hasErrors()) {
+            List<ValidationError> list = new ArrayList<ValidationError>();
+            list.add(new ValidationError("GLOBAL", "The form contains errors. Please fix them before continue"));
+            documentForm.errors().put("GLOBAL", list);
+
+            return badRequest(createDocument.render(documentForm));
+        }
+
+        //Parsing del form to a Document Object
+        Document doc = documentForm.get();
+
+        //Store in DDBB
+        doc.update();
+        return redirect(routes.AppController.index());
     }
 
     public Result create(){
@@ -48,7 +76,7 @@ public class AppController extends Controller {
         //We fill the documentForm (we create it like in the method create) but now we fill it with the form we receive from the view.
         Form<Document> documentForm = form(Document.class).bindFromRequest();
 
-        //Check that the form doesn't constain errors
+        //Check that the form doesn't contains errors
         if(documentForm.hasErrors()) {
             List<ValidationError> list = new ArrayList<ValidationError>();
             list.add(new ValidationError("GLOBAL", "The form contains errors. Please fix them before continue"));
@@ -57,7 +85,7 @@ public class AppController extends Controller {
             return badRequest(createDocument.render(documentForm));
         }
 
-        //Parsing del form to a Document Object
+        //Parsing the form to a Document Object
         Document doc = documentForm.get();
 
         //Store in DDBB

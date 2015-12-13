@@ -15,11 +15,17 @@
 
             <div id="container">
 
-                <h1>Create a new Document</h1>
+                <h1>Edit a Document</h1>
 
                 <!-- We create the form with play tags -->
                 <div id="documentForm">
-                    <form method="POST" action="@routes.AppController.save()" class="form-horizontal" role="form">
+                    <form method="POST" action="@routes.AppController.update(documentForm.get().getId())" class="form-horizontal" role="form">
+
+                            @inputText(
+                                documentForm("id"),
+                                '_label -> null,
+                                'hidden -> "hidden"
+                            )
 
                         <div class="form-group">
                             <div class="col-md-4">
@@ -31,8 +37,6 @@
                                     '_label -> "Title"
                                 )
                             </div>
-
-
 
                         </div>
 
@@ -53,7 +57,7 @@
 
                         <div id="buttons">
                             <a href="@routes.AppController.index()" class="btn btn-default">Back</a>
-                            <input type="submit" class="btn btn-primary" value="Create Document" />
+                            <input type="submit" class="btn btn-primary" value="Update Document" />
                         </div>
                     </form>
                 </div>
