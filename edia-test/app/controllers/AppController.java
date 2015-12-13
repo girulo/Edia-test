@@ -10,6 +10,7 @@ import play.mvc.*;
 import views.html.*;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static play.data.Form.form;
@@ -18,8 +19,7 @@ public class AppController extends Controller {
 
     public Result index() {
 
-        List<Document> documentList = new ArrayList();
-        documentList = Document.find.all();
+        List<Document> documentList = Document.find.where().orderBy().desc("createdDate").findList();
 
         return ok(index.render(documentList));
     }
@@ -87,6 +87,7 @@ public class AppController extends Controller {
 
         //Parsing the form to a Document Object
         Document doc = documentForm.get();
+        doc.setCreatedDate(new Date());
 
         //Store in DDBB
         doc.save();

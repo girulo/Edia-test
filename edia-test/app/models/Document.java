@@ -11,12 +11,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 public class Document extends Model {
 
 
-    //Finder to interect with the database and make sql query's
+    //Finder to interect with the database and make sql querys
     public static Finder<Long, Document> find = new Finder<>(Long.class, Document.class);
 
     @Id
@@ -29,6 +30,8 @@ public class Document extends Model {
     @Required(message = "ERROR: Please fill the Description.")
     private String description;
 
+
+    private Date createdDate;
 
     public Long getId() {
         return id;
@@ -53,4 +56,13 @@ public class Document extends Model {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
 }
+
