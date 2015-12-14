@@ -14,9 +14,9 @@ Edia Test
 
 ###How to import the project into your IDE?
 
-1. Follow the previous steps until the point 3 inclusive
-2. Depending of your IDE you should run different commands:
+1. Follow the previous steps until the point 3 inclusive  
+2. Depending of your IDE you should run different commands:  
  2.1 **Eclipse**: run the command **`eclipse`**. This will "eclipsify" the project, create the .classpath for eclipse and other tasks.  
  2.2 **IntelliJ**: run the command **`gen-idea`**. This will "intellijisy" the project to be able to import to IntelliJ.  
-3. Import the project in your IDE like you normally do.
+3. Import the project in your IDE like you normally do.  
 
