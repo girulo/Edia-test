@@ -20,5 +20,5 @@ Edia Test
  2.2 **IntelliJ**: run the command **`gen-idea`**. This will "intellijisy" the project to be able to import to IntelliJ.  
 3. Import the project in your IDE like you normally do.
 
-Note: If you have some problems importing the project visit [Setting up your preferred IDE](https://www.playframework.com/documentation/2.4.x/IDE) or just ask me.
+**Note**: If you have some problems importing the project visit [Setting up your preferred IDE](https://www.playframework.com/documentation/2.4.x/IDE) or just ask me.
 
