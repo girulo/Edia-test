@@ -10,7 +10,7 @@ Edia Test
  3.2 **Linux** or **Mac OSX**: `./activator`  
 4. This will go inside of the **`Play! Framework`** terminal. Now to run the project, type `run`.
 5. If is the first time you run **Play!** in your computer, it will take some time to download some libraries. Just wait and when it finishes, go to the next step.  
-6. Now you can test the app in the url [http://localhost:9000]()
+6. Now you can test the app in the url [http://localhost:9000](http://localhost:9000)
 
 ###How to import the project into your IDE?
 
@@ -18,5 +18,7 @@ Edia Test
 2. Depending of your IDE you should run different commands:  
  2.1 **Eclipse**: run the command **`eclipse`**. This will "eclipsify" the project, create the .classpath for eclipse and other tasks.  
  2.2 **IntelliJ**: run the command **`gen-idea`**. This will "intellijisy" the project to be able to import to IntelliJ.  
-3. Import the project in your IDE like you normally do.  
+3. Import the project in your IDE like you normally do.
+
+Note: If you have some problems importing the project visit [Setting up your preferred IDE](https://www.playframework.com/documentation/2.4.x/IDE) or just ask me.
 
