@@ -5,8 +5,6 @@ package models;
  */
 
 import com.avaje.ebean.Model;
-import com.representqueens.lingua.en.Fathom;
-import com.representqueens.lingua.en.Readability;
 import play.data.validation.Constraints.Required;
 
 import javax.persistence.Entity;

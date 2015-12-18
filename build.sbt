@@ -2,17 +2,19 @@ name := """edia-test"""
 
 version := "1.0-SNAPSHOT"
 
-lazy val myProject = (project in file("."))
+lazy val root = (project in file("."))
   .enablePlugins(PlayJava, PlayEbean)
 
-scalaVersion := "2.11.6"
+scalaVersion := "2.10.3"
 
 libraryDependencies ++= Seq(
   javaJdbc,
   cache,
   evolutions,
   jdbc,
-  javaWs
+  javaWs,
+  "org.elasticsearch" % "elasticsearch" % "2.1.0",
+  "com.google.code.gson" % "gson" % "2.5"
 )
 
 libraryDependencies += "mysql" % "mysql-connector-java" % "5.1.34"

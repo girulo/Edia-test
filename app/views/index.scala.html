@@ -15,6 +15,20 @@
 
             <h1>Welcome to EDIA test app</h1>
 
+            <form method="POST" action="@routes.AppController.search()" class="form-horizontal" role="form">
+
+                <div class="form-group">
+                    <div class="col-md-4">
+                        <input id="searchBox" name="searchBox" type="text">
+                    </div>
+                </div>
+
+                <div id="searchButton">
+                    <!--<a href="@routes.AppController.search()" class="btn btn-default">Search</a> -->
+                    <input type="submit" class="btn btn-primary" value="Search" />
+                </div>
+            </form>
+
             @if(documentList == null || documentList.size() == 0) {
                 <h2>Sorry, your Document list is empty</h2>
             }else{
