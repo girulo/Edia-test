@@ -1,2 +1,2 @@
-# Edia-test
-Test appl for Edia
+# Test
+Test application. Library
